@@ -92,3 +92,5 @@ parts:
       - libjson-glib-dev
     stage-packages:
       - libgranite4
+      - libjson-glib-1.0-0
+      - libsoup2.4-1

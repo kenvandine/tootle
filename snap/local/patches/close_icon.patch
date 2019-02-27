@@ -1,0 +1,39 @@
+diff --git a/src/Views/AccountView.vala b/src/Views/AccountView.vala
+index 9424d63..673550d 100644
+--- a/src/Views/AccountView.vala
++++ b/src/Views/AccountView.vala
+@@ -153,7 +153,7 @@ public class Tootle.AccountView : TimelineView {
+             button_follow.show ();
+             if (account.rs.following) {
+                 button_follow.tooltip_text = _("Unfollow");
+-                (button_follow.get_image () as Image).icon_name = "close-symbolic";
++                (button_follow.get_image () as Image).icon_name = "window-close-symbolic";
+             }
+             else{
+                 button_follow.tooltip_text = _("Follow");
+diff --git a/src/Widgets/AccountsButton.vala b/src/Widgets/AccountsButton.vala
+index cc76db1..c878ea9 100644
+--- a/src/Widgets/AccountsButton.vala
++++ b/src/Widgets/AccountsButton.vala
+@@ -35,7 +35,7 @@ public class Tootle.AccountsButton : Gtk.MenuButton{
+             display_name.use_markup = true;
+             instance = new Gtk.Label ("");
+             instance.halign = Gtk.Align.START;
+-            button = new Gtk.Button.from_icon_name ("close-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
++            button = new Gtk.Button.from_icon_name ("window-close-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+             button.receives_default = false;
+             button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+             
+diff --git a/src/Widgets/NotificationWidget.vala b/src/Widgets/NotificationWidget.vala
+index 56213f8..93e93be 100644
+--- a/src/Widgets/NotificationWidget.vala
++++ b/src/Widgets/NotificationWidget.vala
+@@ -20,7 +20,7 @@ public class Tootle.NotificationWidget : Grid {
+         label = new RichLabel (_("Unknown Notification"));
+         label.hexpand = true;
+         label.halign = Align.START;
+-        dismiss = new Button.from_icon_name ("close-symbolic", IconSize.BUTTON);
++        dismiss = new Button.from_icon_name ("window-close-symbolic", IconSize.BUTTON);
+         dismiss.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+         dismiss.tooltip_text = _("Dismiss");
+         dismiss.clicked.connect (() => {

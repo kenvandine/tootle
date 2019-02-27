@@ -103,7 +103,7 @@ parts:
       snapcraftctl pull
       sed -i.bak -e 's|Icon=com.github.bleakgrey.tootle$|Icon=${SNAP}/meta/gui/tootle.png|g' data/com.github.bleakgrey.tootle.desktop.in
       mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui/
-      patch -p1 < $SNAPCRAFT_PART_INSTALL/../src/snap/local/patches/close_icon.patch
+      patch -p0 < $SNAPCRAFT_PART_INSTALL/../src/snap/local/icon_close.patch
     plugin: meson
     meson-parameters:
       - --prefix=/snap/tootle/current/usr

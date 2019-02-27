@@ -1,0 +1,13 @@
+diff --git a/src/Dialogs/PostDialog.vala b/src/Dialogs/PostDialog.vala
+index 9ab72ba..d089df3 100644
+--- a/src/Dialogs/PostDialog.vala
++++ b/src/Dialogs/PostDialog.vala
+@@ -57,7 +57,7 @@ public class Tootle.PostDialog : Gtk.Dialog {
+         (attach as Widget).set_focus_on_click (false);
+         attach.clicked.connect (() => attachments.select ());
+         
+-        spoiler = new ImageToggleButton ("image-red-eye-symbolic");
++        spoiler = new ImageToggleButton ("dialog-warning-symbolic");
+         spoiler.tooltip_text = _("Spoiler Warning");
+         spoiler.set_action ();
+         spoiler.toggled.connect (() => {

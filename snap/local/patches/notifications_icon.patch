@@ -1,0 +1,16 @@
+diff --git a/src/Views/NotificationsView.vala b/src/Views/NotificationsView.vala
+index dfd59a0..05496e3 100644
+--- a/src/Views/NotificationsView.vala
++++ b/src/Views/NotificationsView.vala
+@@ -25,9 +25,9 @@ public class Tootle.NotificationsView : AbstractView {
+     
+     public override string get_icon () {
+         if (has_unread ())
+-            return Desktop.fallback_icon ("notification-new-symbolic", "user-available-symbolic");
++            return Desktop.fallback_icon ("user-available-symbolic", "notification-new-symbolic");
+         else
+-            return Desktop.fallback_icon ("notification-symbolic", "user-invisible-symbolic");
++            return Desktop.fallback_icon ("user-invisible-symbolic", "notification-symbolic");
+     }
+     
+     public override string get_name () {

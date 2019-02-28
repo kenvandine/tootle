@@ -84,6 +84,9 @@ parts:
     source: https://github.com/elementary/granite.git
     meson-parameters: [ --prefix=/usr ]
     plugin: meson
+    override-pull: |
+      snapcraftctl pull
+      sed -i.bak -e 's|io.elementary.desktop.wingpanel.datetime|org.gnome.desktop.interface|g' lib/DateTime.vala
     build-packages:
       - libgee-0.8-dev
       - libgtk-3-dev
@@ -98,7 +101,6 @@ parts:
     build-environment:
       - XDG_DATA_DIRS: $XDG_DATA_DIRS:$SNAPCRAFT_STAGE/usr/share:/usr/share
       - GI_TYPELIB_PATH: $SNAPCRAFT_STAGE/usr/lib/girepository-1.0:$SNAPCRAFT_STAGE/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/girepository-1.0:/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/girepository-1.0
-
     override-pull: |
       snapcraftctl pull
       sed -i.bak -e 's|Icon=com.github.bleakgrey.tootle$|Icon=${SNAP}/meta/gui/tootle.png|g' data/com.github.bleakgrey.tootle.desktop.in
@@ -106,7 +108,6 @@ parts:
       patch -p1 < $SNAPCRAFT_PART_INSTALL/../src/snap/local/patches/close_icon.patch
       patch -p1 < $SNAPCRAFT_PART_INSTALL/../src/snap/local/patches/notifications_icon.patch
       patch -p1 < $SNAPCRAFT_PART_INSTALL/../src/snap/local/patches/spoiler_alert.patch
-
     plugin: meson
     meson-parameters:
       - --prefix=/snap/tootle/current/usr

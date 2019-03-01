@@ -1,19 +1,6 @@
 name: tootle
 version: git
-summary: Tootle
-description: |
-  Tootle is a client for the world’s largest free, open-source, decentralized
-  microblogging network with real-time notifications and support for multiple
-  accounts.
-
-  Mastodon is lovingly crafted with power and speed in mind, resulting in a
-  free, independent, and popular alternative to the centralized social
-  networks.
-
-  Anyone can run a Mastodon server. Each server hosts individual user accounts,
-  the content they produce, and the content to which they are subscribed. Every
-  user can follow each other and share their posts regardless of their server.
-
+adopt-info: tootle
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
 base: core18
@@ -55,7 +42,7 @@ slots:
 apps:
   tootle:
     command: bin/desktop-launch ${SNAP}/usr/bin/com.github.bleakgrey.tootle
-    desktop: usr/share/applications/com.github.bleakgrey.tootle.desktop
+    common-id: com.github.bleakgrey.tootle.desktop
     plugs:
       - desktop
       - desktop-legacy
@@ -98,6 +85,7 @@ parts:
     after: [granite, desktop-gnome-platform]
     source: .
     source-type: git
+    parse-info: [usr/share/metainfo/com.github.bleakgrey.tootle.appdata.xml]
     build-environment:
       - XDG_DATA_DIRS: $XDG_DATA_DIRS:$SNAPCRAFT_STAGE/usr/share:/usr/share
       - GI_TYPELIB_PATH: $SNAPCRAFT_STAGE/usr/lib/girepository-1.0:$SNAPCRAFT_STAGE/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/girepository-1.0:/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/girepository-1.0
